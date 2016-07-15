@@ -14,12 +14,16 @@ class HelloWorld extends React.Component {
 }
 
 class WriterList extends React.Component {
+	constructor() {
+		super();
+		this.state = { writers: ['Italo Calvino', 'Mikhail Bulgakov', 'Silvina Ocampo', 'Elizabeth Bowen'] };
+	}
+
 	render() {
+		const writerListItems = this.state.writers.map((writerName) => (<li>{writerName}</li>))
 		return (
 			<ul>
-				<li>Italo Calvino</li>
-				<li>Silvina Ocampo</li>
-				<li>Elizabeth Bowen</li>
+				{writerListItems}
 			</ul>
 		);
 	}
