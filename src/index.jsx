@@ -16,15 +16,36 @@ class HelloWorld extends React.Component {
 class WriterList extends React.Component {
 	constructor() {
 		super();
-		this.state = { writers: ['Italo Calvino', 'Mikhail Bulgakov', 'Silvina Ocampo', 'Elizabeth Bowen', 'Maria Semple'] };
+		this.state = {
+		    writers: ['Italo Calvino', 'Mikhail Bulgakov', 'Silvina Ocampo', 'Elizabeth Bowen', 'Maria Semple'],
+            sorted: false
+		};
+	}
+
+	handleSort(shouldSort) {
+	    if (shouldSort) {
+	        this.setState({sorted: true});
+        } else {
+            this.setState({sorted:false});
+        }
 	}
 
 	render() {
-		const writerListItems = this.state.writers.map((writerName, index) => <WriterListItem index={index} name={writerName}/>)
+	    const writers = (this.state.sorted)
+            ? [...this.state.writers].sort()
+            : this.state.writers;
+		const writerListItems = writers.map((writerName, index) => <WriterListItem index={index} name={writerName}/>);
 		return (
-			<ul>
-				{writerListItems}
-			</ul>
+            <div>
+                <ul>
+                    {writerListItems}
+                </ul>
+                <div>
+                Sort:
+                    <input type="radio" id="sort-yes" name="sort" checked={this.state.sorted} onChange={this.handleSort.bind(this, true)}/> Yes
+                    <input type="radio" id="sort-no" name="sort" checked={!this.state.sorted} onChange={this.handleSort.bind(this, false)}/> No
+                </div>
+            </div>
 		);
 	}
 }
