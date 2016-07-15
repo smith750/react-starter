@@ -29,11 +29,9 @@ class WriterList extends React.Component {
 	}
 }
 
-class WriterListItem extends React.Component {
-	render() {
-	    const key = "writer:"+this.props.index;
-		return <li key={this.props.index}>{this.props.name}</li>;
-	}
+function WriterListItem({index, name}) {
+    const key = "writer:"+index;
+    return <li key={index}>{name}</li>;
 }
 
 const Footer = () => (
