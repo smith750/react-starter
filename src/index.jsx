@@ -2,11 +2,20 @@ import React from 'react';
 import { render } from 'react-dom';
 
 class HelloWorld extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            readerJames: { name: "James", writers: ['Italo Calvino', 'Mikhail Bulgakov', 'Silvina Ocampo', 'Elizabeth Bowen', 'Maria Semple']},
+            readerWarren: { name: "Warren", writers: ['Roberto Bolano', 'Karl Ove Knausgard', 'Leo Tolstoy', 'Donna Tartt', 'William Vollman', 'David Foster Wallace', 'Vassily Grossman', 'Vyasa'] }
+        }
+    }
+
 	render() {
 		return (
 			<div>
 				<h2>Hola Mundo!</h2>
-				<WriterList/>
+                <WriterList reader={this.state.readerJames}/>
+                <WriterList reader={this.state.readerWarren}/>
 				<Footer/>
 			</div>
 		);
@@ -14,17 +23,15 @@ class HelloWorld extends React.Component {
 }
 
 class WriterList extends React.Component {
-	constructor() {
-		super();
-		this.state = { writers: ['Italo Calvino', 'Mikhail Bulgakov', 'Silvina Ocampo', 'Elizabeth Bowen', 'Maria Semple'] };
-	}
-
 	render() {
-		const writerListItems = this.state.writers.map((writerName, index) => <WriterListItem index={index} name={writerName}/>)
+		const writerListItems = this.props.reader.writers.map((writerName, index) => <WriterListItem index={index} name={writerName}/>)
 		return (
-			<ul>
-				{writerListItems}
-			</ul>
+		    <div>
+                <h3>Writers for {this.props.reader.name}</h3>
+                <ul>
+                    {writerListItems}
+                </ul>
+            </div>
 		);
 	}
 }
