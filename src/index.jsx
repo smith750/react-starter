@@ -40,11 +40,7 @@ class WriterList extends React.Component {
                 <ul>
                     {writerListItems}
                 </ul>
-                <div>
-                Sort:
-                    <input type="radio" id="sort-yes" name="sort" checked={this.state.sorted} onChange={this.handleSort.bind(this, true)}/> Yes
-                    <input type="radio" id="sort-no" name="sort" checked={!this.state.sorted} onChange={this.handleSort.bind(this, false)}/> No
-                </div>
+                <SortControls sortOnHandler={this.handleSort.bind(this, true)} sortOffHandler={this.handleSort.bind(this, false)} sorted={this.state.sorted}/>
             </div>
 		);
 	}
@@ -55,6 +51,16 @@ class WriterListItem extends React.Component {
 	    const key = "writer:"+this.props.index;
 		return <li key={this.props.index}>{this.props.name}</li>;
 	}
+}
+
+class SortControls extends React.Component {
+    render() {
+        return (<div>
+            Sort:
+            <input type="radio" id="sort-yes" name="sort" checked={this.props.sorted} onChange={this.props.sortOnHandler}/> Yes
+            <input type="radio" id="sort-no" name="sort" checked={!this.props.sorted} onChange={this.props.sortOffHandler}/> No
+        </div>);
+    }
 }
 
 const Footer = () => (
