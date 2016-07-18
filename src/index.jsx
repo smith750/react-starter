@@ -49,7 +49,7 @@ class WriterList extends React.Component {
 class WriterListItem extends React.Component {
 	render() {
 	    const key = "writer:"+this.props.index;
-		return <li key={this.props.index}>{this.props.name}</li>;
+		return <li key={key}>{this.props.name}</li>;
 	}
 }
 
