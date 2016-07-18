@@ -9,4 +9,4 @@ class HelloWorld extends React.Component {
 	}
 }
 
-React.render(<HelloWorld />, document.getElementById('main'));
+render(<HelloWorld />, document.getElementById('main'));
