@@ -29,4 +29,4 @@ const Footer = () => (
 	<p>This is a footer, which means that it is at the bottom of the page.</p>
 );
 
-React.render(<HelloWorld />, document.getElementById('main'));
+render(<HelloWorld />, document.getElementById('main'));
