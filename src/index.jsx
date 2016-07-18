@@ -6,7 +6,7 @@ class HelloWorld extends React.Component {
         super();
         this.state = {
             readerJames: { name: "James", writers: ['Italo Calvino', 'Mikhail Bulgakov', 'Silvina Ocampo', 'Elizabeth Bowen', 'Maria Semple']},
-            readerWarren: { name: "Warren", writers: ['Roberto Bolano', 'Karl Ove Knausgard', 'Leo Tolstoy', 'Donna Tartt', 'William Vollman', 'David Foster Wallace', 'Vassily Grossman', 'Vyasa'] }
+            readerWarren: { name: "Warren", writers: ['Roberto Bolano', 'Karl Ove Knausgard', 'Leo Tolstoy', 'Donna Tartt', 'William Vollman', 'David Foster Wallace', 'Vassily Grossman', 'Anthony Doerr', 'Thomas Pynchon', 'Vyasa'] }
         }
     }
 
